@@ -6,7 +6,7 @@ import "./main-section.styles.scss";
 function MainSection({ history }) {
   return (
     <div className="main-section-container">
-      <div className="main-section">
+      <div className="main-section-middle">
         <div className="ms-m-image">
           <img src={studioBag} alt="studio bag" />
         </div>
