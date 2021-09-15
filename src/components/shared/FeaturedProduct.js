@@ -1,7 +1,8 @@
 import React from "react";
 import "./featured-product.styles.scss";
 
-const FeaturedProduct = ({ title, imageUrl, price }) => {
+const FeaturedProduct = (product) => {
+  const { title, imageUrl, price } = product;
   return (
     <div className="featured-product">
       <div className="featured-image">
