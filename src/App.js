@@ -3,6 +3,7 @@ import Header from "./components/header/Header";
 import Hero from "./components/hero/Hero";
 import MainSection from "./components/main-section/MainSection";
 import FeaturedCollection from "./components/featured-collection/FeaturedCollection";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <MainSection />
       <FeaturedCollection />
+      <Footer />
     </div>
   );
 }
