@@ -18,11 +18,17 @@ function SingProduct({ match, history: { push } }) {
     }
 
     setProduct(product);
-  });
+  }, [id, product, push, products]);
+
+  //while we check for product
+  if (!product) {
+    return null;
+  }
   const { imageUrl, title, price, description } = product;
+
   return (
     <Layout>
-      <div className="single-product">
+      <div className="single-product-container">
         <div className="product-image">
           <img src={imageUrl} alt="product" />
         </div>
