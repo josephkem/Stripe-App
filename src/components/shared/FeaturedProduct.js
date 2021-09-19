@@ -5,9 +5,8 @@ import { withRouter } from "react-router-dom";
 import "./featured-product.styles.scss";
 
 const FeaturedProduct = (props) => {
-  const { title, imageUrl, price, history, id } = props;
-  const product = ({ title, imageUrl, price, history, id, description } =
-    props);
+  const { title, imageUrl, price, history, id, description } = props;
+  const product = { title, imageUrl, price, history, id, description };
   const { addProduct, cartItems } = useContext(CartContext);
   return (
     <div className="featured-product">
