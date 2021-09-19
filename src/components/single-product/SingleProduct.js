@@ -8,7 +8,7 @@ import "./single-product.styles.scss";
 
 function SingleProduct({ match, history: { push } }) {
   const { products } = useContext(ProductsContext);
-  const { addProduct, cartItems } = useContext(CartContext);
+  const { addProduct, cartItems, increase } = useContext(CartContext);
   const { id } = match.params;
   const [product, setProduct] = useState(null);
 
@@ -55,7 +55,7 @@ function SingleProduct({ match, history: { push } }) {
               <button
                 className="button is-white nomad-btn"
                 id="btn-white-outline"
-                onClick={() => {}}
+                onClick={() => increase(product)}
               >
                 ADD MORE
               </button>
