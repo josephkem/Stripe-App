@@ -3,7 +3,7 @@ import "./App.scss";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 import Shop from "./pages/shop/Shop";
-import SingleProduct from "./components/single-product/SingProduct";
+import SingleProduct from "./components/single-product/SingleProduct";
 
 function App() {
   return (

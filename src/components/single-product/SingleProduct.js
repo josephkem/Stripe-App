@@ -4,7 +4,7 @@ import { ProductsContext } from "../../context/ProductsContext";
 import Layout from "../shared/Layout";
 import "./single-product.styles.scss";
 
-function SingProduct({ match, history: { push } }) {
+function SingleProduct({ match, history: { push } }) {
   const { products } = useContext(ProductsContext);
   const { id } = match.params;
   const [product, setProduct] = useState(null);
@@ -60,4 +60,4 @@ function SingProduct({ match, history: { push } }) {
   );
 }
 
-export default withRouter(SingProduct);
+export default withRouter(SingleProduct);
