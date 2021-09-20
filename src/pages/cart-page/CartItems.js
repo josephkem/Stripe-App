@@ -8,8 +8,8 @@ import {
 function CartItems() {
   const { title, imageUrl, price, quantity } = product;
   return (
-    <div>
-      <div>
+    <div className="cart-item">
+      <div className="item-image">
         <img src={imageUrl} alt="product" />
       </div>
       <div className="name-price">
@@ -20,16 +20,16 @@ function CartItems() {
         <p>{`Quantity: ${quantity}`}</p>
       </div>
       <div className="btns-container">
-        <button>
+        <button className="btn-increase">
           <PlusCircleIcon width="20px" />
         </button>
         {quantity === 1 && (
-          <button>
+          <button className="btn-trash">
             <TrashIcon width="20px" />
           </button>
         )}
         {quantity > 1 && (
-          <button>
+          <button className="btn-decrease">
             <MinusCircleIcon width="20px" />
           </button>
         )}
