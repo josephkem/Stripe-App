@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 import Shop from "./pages/shop/Shop";
 import SingleProduct from "./components/single-product/SingleProduct";
+import CartPage from "./pages/cart-page/CartPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/shop" component={Shop} />
         <Route path="/product/:id" component={SingleProduct} />
+        <Route path="/cart" component={CartPage} />
         <Route path="*" component={NotFound} />
       </Switch>
     </div>

@@ -5,7 +5,7 @@ import {
   TrashIcon,
 } from "../../components/icons/index";
 
-function CartItems() {
+function CartItems(product) {
   const { title, imageUrl, price, quantity } = product;
   return (
     <div className="cart-item">
