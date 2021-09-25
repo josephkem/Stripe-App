@@ -5,8 +5,18 @@ import {
   TrashIcon,
 } from "../../components/icons/index";
 
-function CartItems(product) {
-  const { title, imageUrl, price, quantity } = product;
+function CartItems(props) {
+  const {
+    title,
+    imageUrl,
+    price,
+    quantity,
+    id,
+    description,
+    increase,
+    decrease,
+  } = props;
+  const product = { title, imageUrl, price, quantity, id, description };
   return (
     <div className="cart-item">
       <div className="item-image">
@@ -20,7 +30,7 @@ function CartItems(product) {
         <p>{`Quantity: ${quantity}`}</p>
       </div>
       <div className="btns-container">
-        <button className="btn-increase">
+        <button className="btn-increase" onClick={() => increase(product)}>
           <PlusCircleIcon width="20px" />
         </button>
         {quantity === 1 && (
@@ -29,7 +39,7 @@ function CartItems(product) {
           </button>
         )}
         {quantity > 1 && (
-          <button className="btn-decrease">
+          <button className="btn-decrease" onClick={() => decrease(product)}>
             <MinusCircleIcon width="20px" />
           </button>
         )}
