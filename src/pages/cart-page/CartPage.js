@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import Layout from "../../components/shared/Layout";
 import CartItems from "./CartItems";
+import Total from "./Total";
 import "./cart-page.styles.scss";
 
 function CartPage() {
@@ -20,6 +21,7 @@ function CartPage() {
                   <CartItems {...item} key={item.id} />
                 ))}
               </div>
+              <Total itemCount={itemCount} total={total} />
             </div>
           </>
         )}
