@@ -15,6 +15,7 @@ function CartItems(props) {
     description,
     increase,
     decrease,
+    remove,
   } = props;
   const product = { title, imageUrl, price, quantity, id, description };
   return (
@@ -34,7 +35,7 @@ function CartItems(props) {
           <PlusCircleIcon width="20px" />
         </button>
         {quantity === 1 && (
-          <button className="btn-trash">
+          <button className="btn-trash" onClick={() => remove(product)}>
             <TrashIcon width="20px" />
           </button>
         )}
