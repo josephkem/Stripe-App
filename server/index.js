@@ -11,6 +11,6 @@ app.use(cors({ origin: true }));
 
 app.get("/", (req, res) => res.send("Hello World"));
 
-app.post("./create-checkout-session", createCheckoutSession);
+app.post("/create-checkout-session", createCheckoutSession);
 
 app.listen(port, () => console.log("listening on port", port));

@@ -1,4 +1,4 @@
-const stripeAPI = require("./stripe");
+const stripeAPI = require("../stripe");
 
 const createCheckoutSession = async (req, res) => {
   const domainUrl = process.env.WEB_APP_URL;
@@ -16,7 +16,7 @@ const createCheckoutSession = async (req, res) => {
   try {
     session = await stripeAPI.checkout.sessions.create({
       payment_method_types: ["card"],
-      mode: "paymenr",
+      mode: "payment",
       line_items,
       customer_email,
       success_url: `${domainUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
