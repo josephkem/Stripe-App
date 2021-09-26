@@ -23,7 +23,7 @@ const createCheckoutSession = async (req, res) => {
       cancel_url: `${domainUrl}/canceled`,
       shipping_address_collection: { allowed_countries: ["GB", "US"] },
     });
-    res.status(200).json({ sessionID: session.id });
+    res.status(200).json({ sessionId: session.id });
   } catch (error) {
     console.log(error);
     res
