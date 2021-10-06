@@ -101,40 +101,40 @@ form {
   .submit {
     width: 200px;
   }
+}
 
-  .form-error {
-    border: 1px solid red;
+.form-error {
+  border: 1px solid red;
+}
+
+::placeholder {
+  color: #606060;
+  font-size: 16px;
+}
+
+#btn-white-outline {
+  border: 1px solid grey;
+  margin-bottom: 1rem;
+}
+#buy-it-now-btn {
+  &:hover {
+    background-color: #606060;
   }
+}
 
-  ::placeholder {
-    color: #606060;
-    font-size: 16px;
-  }
+@media (min-width: 1024px) {
+  form {
+    width: 60%;
+    margin: 0 auto;
 
-  #btn-white-outline {
-    border: 1px solid grey;
-    margin-bottom: 1rem;
-  }
-
-  #buy-it-now-btn {
-    &:hover {
-      background-color: #606060;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    form {
-      width: 80%;
-      margin: 0 auto;
-
-      input[type="text"],
-      input[type="email"],
-      input[type="password"] {
-        width: 65%;
-      }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 65%;
     }
   }
 }
+
 .error {
   border: 1px solid red;
 }

@@ -9,6 +9,7 @@ import Checkout from "./components/checkout/Checkout";
 import Success from "./components/checkout/stripe-checkout/Success";
 import Canceled from "./components/checkout/stripe-checkout/Canceled";
 import SignUp from "./components/sign-up/SignUp";
+import SignIn from "./components/sign-in/SignIn";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/cart" component={CartPage} />
         <Route path="/checkout" component={Checkout} />
         <Route path="/sign-up" component={SignUp} />
+        <Route path="/sign-in" component={SignIn} />
         <Route path="/success" component={Success} />
         <Route path="/canceled" component={Canceled} />
         <Route path="*" component={NotFound} />
