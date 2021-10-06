@@ -15,7 +15,7 @@ const validate = (values) => {
   }
 };
 
-export default function ShippingAddress() {
+export default function ShippingAddress({ setShipping }) {
   const initialValues = {
     email: "",
     name: "",
@@ -28,7 +28,8 @@ export default function ShippingAddress() {
         initialValues={initialValues}
         validate={validate}
         onSubmit={(values) => {
-          conosle.log("values", values);
+          console.log("values", values);
+          setShipping(values);
         }}
       >
         {({ values, errors, handleChange, handleSubmit }) => {
@@ -41,6 +42,7 @@ export default function ShippingAddress() {
                   name="name"
                   onChange={handleChange}
                   value={values.name}
+                  placeholder="Name"
                   className={"nomad-input" + (name ? "error" : "")}
                 />
               </div>
@@ -50,6 +52,7 @@ export default function ShippingAddress() {
                   name="email"
                   onChange={handleChange}
                   value={values.email}
+                  placeholder="Email"
                   className={"nomad-input" + (email ? "error" : "")}
                 />
               </div>
@@ -59,6 +62,7 @@ export default function ShippingAddress() {
                   name="address"
                   onChange={handleChange}
                   value={values.address}
+                  placeholder="Address"
                   className={"nomad-input" + (address ? "error" : "")}
                 />
               </div>
