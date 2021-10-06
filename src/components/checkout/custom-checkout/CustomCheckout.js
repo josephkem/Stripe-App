@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import {
   CardNumberElement,
@@ -9,10 +9,54 @@ import {
 } from "@stripe/react-stripe-js";
 import { fetchFromAPI } from "../../../helpers";
 
-function CustomCheckout() {
+function CustomCheckout({ shipping, cartItems, history: { push } }) {
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState(null);
-  const lelements = useElements();
+  const [clientSecret, setClientSecret] = useState(null);
+  const stripe = useStripe();
+  const elements = useElements();
+
+  useEffect(() => {
+    const items = cartItems.map((item) => ({
+      price: item.price,
+      quantity: item.quantity,
+    }));
+    if (shipping) {
+      const body = {
+        cartItems: items,
+        shipping: {
+          name: shipping.name,
+          address: {
+            line1: shipping.address,
+          },
+        },
+        description: "payment intent for nomad shop",
+        receipt_email: shipping.email,
+      };
+      const customCheckout = async () => {
+        const { clientSecret } = await fetchFromAPI("create-payment-intent", {
+          body,
+        });
+        setClientSecret(clientSecret);
+      };
+      customCheckout();
+    }
+  }, [shipping, cartItems]);
+
+  const handleCheckout = async () => {
+    setProcessing(true);
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardNumberElement),
+      },
+    });
+
+    if (payload.error) {
+      setError(`Payment failed: ${payload.error.message}`);
+    } else {
+      push("/success");
+    }
+  };
 
   const cardHandleChange = (event) => {
     const { error } = event;
@@ -76,4 +120,4 @@ function CustomCheckout() {
   );
 }
 
-export default CustomCheckout;
+export default withRouter(CustomCheckout);
