@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Layout from "../shared/Layout";
 import { Formik } from "formik";
 import { withRouter } from "react-router";
@@ -44,6 +46,7 @@ function SignUp({ history: { push } }) {
       push("/shop");
       setSubmitting(false);
     } catch (error) {
+      toast.error(error.message);
       console.log(error);
       setSubmitting(false);
       setError(error);

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Layout from "../shared/Layout";
 import { withRouter } from "react-router";
 import { auth } from "../../firebase/index";
@@ -21,6 +23,7 @@ function SignIn({ history: { push } }) {
       setSubmitting(false);
       push("/shop");
     } catch (error) {
+      toast.error(error.message);
       console.log(error);
       setSubmitting(false);
       setError(error);
@@ -64,9 +67,6 @@ function SignIn({ history: { push } }) {
                   >
                     Sign In
                   </button>
-                </div>
-                <div className="error-message">
-                  {error && <p>{error.message}</p>}
                 </div>
               </form>
             );
