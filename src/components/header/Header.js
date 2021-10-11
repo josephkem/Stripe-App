@@ -28,7 +28,7 @@ function Header() {
         {user && <li onClick={() => auth.signOut()}>Sign Out</li>}
         {!user && (
           <li>
-            <Link to="/sign-up">Sing Up</Link>
+            <Link to="/sign-up">Sign Up</Link>
           </li>
         )}
       </ul>
