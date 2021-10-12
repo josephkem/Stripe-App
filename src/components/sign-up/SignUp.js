@@ -100,13 +100,10 @@ function SignUp({ history: { push } }) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="button is-black npmad-btn submit"
+                      className="button is-black nomad-btn submit"
                     >
                       Sign Up
                     </button>
-                  </div>
-                  <div className="error-message">
-                    {error && <p>{error.message}</p>}
                   </div>
                 </form>
               );
